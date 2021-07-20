@@ -29,8 +29,10 @@
 <div class="row">
 <div class="container-fluid"><main>
 <div class="row">
+<div class="container-fluid"><main>
+<div class="row">
 <div class="col-xs-12 col-sm-offset-2 col-sm-8">
-<h1 style="color: #b1810b; text-align: left;">HW10 - Challenge</h1>
+<h1 style="color: #b1810b; text-align: left;">HW11 - Challenge</h1>
 <hr style="width: 100%; height: auto; color: #ffffff; border: 1px inset #cccccc;" />
 <p></p>
 <ul>
@@ -41,212 +43,94 @@
 </ul>
 <hr style="width: 100%; height: auto; color: #ffffff; border: 1px inset #cccccc;" />
 <h2 id="1">Description</h2>
-<p>For this Homework, you will be implementing a single class: <code>NumberFinder</code>. This class will process a String input and calculate key statistics.&nbsp;</p>
+<p>For this Homework, you will be implementing a GUI application that will perform calculations for the user using Network IO. You will use two classes: CalculatorClient.java and CalculatorServer.java</p>
 <p></p>
 <p>Note: 5 points of your Challenge grade is based on Coding Style.&nbsp; You will need to follow the standards described <a href="https://purdue.brightspace.com/d2l/le/content/307113/viewContent/6356290/View" target="_blank">here</a>&nbsp;. Use the "Run" button to check your Coding Style without using a submission.&nbsp;</p>
 <hr style="width: 100%; height: auto; color: #ffffff; border: 1px inset #cccccc;" />
 <h2 id="2">Instructions</h2>
-<h3>Here are the assignment requirements:&nbsp;</h3>
+<p>All input and output should be done through <code>JOptionPane</code> dialogs. Any input and output conducted via the terminal will not receive points.&nbsp;</p>
+<p></p>
+<p><br />The user will be able to enter the host name and port number through a <code>JOptionPane</code>. Once connected, the user can enter an equation and will be given the answer in another <code>JOptionPane</code>.</p>
+<p><br />Your application should handle 6 equation types (addition, subtraction, multiplication, division, exponentiation, modulus) and will be formatted as:</p>
+<p>[number] [operand] [number]</p>
+<p></p>
+<p>Note that there must be one space between the first number and the operand and one space between the operand and the second number.</p>
+<p><br />The numbers entered by the user should allow for decimals.</p>
+<p><br />The following are valid equations:</p>
 <ul>
-<li>Create a class that utilizes static variables in a deterministic and multithreaded manner. Your solution must have three static variables:&nbsp;
+<li>5 + 3</li>
+<li>2.7 / 4</li>
+<li>3 * 9</li>
+<li>-10 - 2.5</li>
+<li>4 ^ 2</li>
+<li>5 % 2</li>
+</ul>
+<p>An invalid equation could look like:</p>
 <ul>
-<li>numberCounter: a counter that increments for each number present in the String.</li>
-<li>wordCounter: a counter that increments for each valid word present in the String.</li>
-<li>total: a variable that tracks the sum of each number present in the String.&nbsp;</li>
+<li>5</li>
+<li>8/4</li>
+<li>3 & 9</li>
+<li>3 * a</li>
+<li>^4</li>
+<li>&nbsp;7 - 3 (there are spaces before and after the numbers)</li>
+<li>4 -2 (Invalid because there is no space between the '-' and the '2').</li>
+</ul>
+<p></p>
+<p>Note: Calculations should be done on the server.&nbsp;</p>
+<h3>Steps</h3>
+<p>Your program must perform the following in order:&nbsp;</p>
+<ol>
+<li>Welcome the user</li>
+<li>Prompt the user to enter a host name and port number (you may do this separately or together).
+<ol>
+<li>If the connection is not established successfully, show an error message and end the program.&nbsp;</li>
+</ol>
+</li>
+<li>Show a connection established message.&nbsp;</li>
+<li>Prompt the user to enter their equation.
+<ol>
+<li>If there is an error in the equation, show an error message and prompt the user to re-enter the equation. Repeat as many times as necessary.&nbsp;</li>
+</ol>
+</li>
+<li>Show the user the result of the calculation.</li>
+<li>Ask the user if they wish to enter another equation.
+<ol>
+<li>If yes, return to step 4.&nbsp;</li>
+<li>If no, show a farewell message.&nbsp;</li>
+</ol>
+</li>
+<li>Exit</li>
+</ol>
+<p></p>
+<p>The specifics of the look and feel, the text messages you use, and the types of dialogs are all up to you. Keep in mind that all your decisions should be logical and design oriented.&nbsp;</p>
+<p></p>
+<p>Hint: Remember, the server needs to be running before you run the client.&nbsp;</p>
+<p></p>
+<h3>Notes</h3>
+<ul>
+<li>Your program should handle a situation where the user selects cancel on any option where it is available, or exits the panel.&nbsp;</li>
+<li>The client handles user input and displaying the GUI. The server performs the calculations. Solutions that do not organize the implementation appropriately will not receive credit.&nbsp;</li>
+<li>The Intellij GUI Designer (or any other shortcut tool) is not allowed for any CS 18000 assignment.&nbsp;
+<ul>
+<li>If there are .form files in your submission, it will not be graded.&nbsp;</li>
 </ul>
 </li>
-<li>The class must be able to be spawned as a Thread.</li>
-<li>Objects of the class will be passed a String containing many space-separated words or numbers, a start index (inclusive), and an end index (exclusive).</li>
-<li>Within the run() method, the class must iterate through the String from the start index to the end index (but not including the end index) and update the static variables accordingly.&nbsp;</li>
-<li>The processing described above should happen concurrently for multiple threads.&nbsp;
-<ul>
-<li>The only synchronized portions of the solution should be for accessing shared resources.&nbsp;</li>
+<li>You can choose which port number to use in the Server. Include the number in the client and server class comments.&nbsp;</li>
+<li>If the result of the calculation is a double, format it to two decimal places.&nbsp;</li>
+<li>Your solution must handle all exceptions and errors.&nbsp;</li>
+<li>You will not be able to run your solution on Vocareum. This is expected. As long as you submit, you will be graded.&nbsp;</li>
 </ul>
-</li>
-</ul>
-<p></p>
-<h3>Class Requirements:&nbsp;</h3>
-<h4>Fields</h4>
-<table border="1px" style="margin-left: auto; margin-right: auto; width: 666px;">
-<tbody>
-<tr>
-<td style="width: 167.778px;">
-<p>Name</p>
-</td>
-<td style="width: 76.6667px;">
-<p>Type</p>
-</td>
-<td style="width: 170px;">
-<p>Access Modifier(s)</p>
-</td>
-<td style="width: 250px;">
-<p>Additional Modifier(s)</p>
-</td>
-</tr>
-<tr>
-<td style="width: 167.778px;">
-<p>numberCounter</p>
-</td>
-<td style="width: 76.6667px;">
-<p>int</p>
-</td>
-<td style="width: 170px;">
-<p>private</p>
-</td>
-<td style="width: 250px;">
-<p>static</p>
-</td>
-</tr>
-<tr>
-<td style="width: 167.778px;">
-<p>wordCounter</p>
-</td>
-<td style="width: 76.6667px;">
-<p>int</p>
-</td>
-<td style="width: 170px;">
-<p>private</p>
-</td>
-<td style="width: 250px;">
-<p>static</p>
-</td>
-</tr>
-<tr>
-<td style="width: 167.778px;">
-<p>total</p>
-</td>
-<td style="width: 76.6667px;">
-<p>double</p>
-</td>
-<td style="width: 170px;">
-<p>private</p>
-</td>
-<td style="width: 250px;">
-<p>static</p>
-</td>
-</tr>
-<tr>
-<td style="width: 167.778px;">
-<p>start</p>
-</td>
-<td style="width: 76.6667px;">
-<p>int</p>
-</td>
-<td style="width: 170px;">
-<p>private</p>
-</td>
-<td style="width: 250px;">
-<p>N/A</p>
-</td>
-</tr>
-<tr>
-<td style="width: 167.778px;">
-<p>end</p>
-</td>
-<td style="width: 76.6667px;">
-<p>int</p>
-</td>
-<td style="width: 170px;">
-<p>private</p>
-</td>
-<td style="width: 250px;">
-<p>N/A</p>
-</td>
-</tr>
-<tr>
-<td style="width: 167.778px;">
-<p>inputText</p>
-</td>
-<td style="width: 76.6667px;">
-<p>String</p>
-</td>
-<td style="width: 170px;">
-<p>private</p>
-</td>
-<td style="width: 250px;">
-<p>N/A</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p></p>
-<h4>Constructors</h4>
-<table border="1px" style="margin-left: auto; margin-right: auto; width: 700px;">
-<tbody>
-<tr>
-<td colspan="1" rowspan="1" style="width: 521px;">
-<p>Parameters</p>
-</td>
-<td colspan="1" rowspan="1" style="width: 178px;">
-<p>Access Modifier(s)</p>
-</td>
-</tr>
-<tr>
-<td colspan="1" rowspan="1" style="width: 521px;">
-<p>String inputText, int start, int end</p>
-</td>
-<td colspan="1" rowspan="1" style="width: 178px;">
-<p>public</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p></p>
-<h4>Methods</h4>
-<p>You may implement any methods you choose to accomplish the goal, as long as you have a run() method that will process data according to the implementation requirements.&nbsp;</p>
 <hr style="width: 100%; height: auto; color: #ffffff; border: 1px inset #cccccc;" />
 <h2 id="3">Testing</h2>
-<p>No local test cases are provided with this assignment. Instead, we recommend writing your own using the examples we've provided for past assignments.&nbsp;</p>
-<p></p>
-<p>We will be using the following input String for this testing example:</p>
-<p></p>
-<p></p>
-<pre>String inputText = "This 1 string has nu17mbers in 12 it."</pre>
-<p></p>
-<p>Say that two NumberFinder Objects are constructed with the following arguments:</p>
-<p></p>
-<pre>NumberFinder one = new NumberFinder(inputText, 0, 18);<br />NumberFinder two = new NumberFinder(inputText, 18, 37);</pre>
-<p></p>
-<p>Now, assume that the appropriate method calls take place such that the instantiated NumberFinders are running concurrently. For the sake of example we will describe the logic as occurring linearly, but in reality it will be occurring concurrently.</p>
-<p></p>
-<p></p>
-<p>First, let us look at the NumberFinder named &ldquo;one&rdquo; with start index 0 (inclusive) and end index 18 (exclusive). The corresponding substring of the inputText is &ldquo;This 1 string has &rdquo;. There is one number in this String, along with 3 words. Thus, 1 is added to numberCounter, 3 is added to wordCounter, and the total value of the numbers, 1, is added to total.&nbsp;</p>
-<p></p>
-<p>Now let us look at the NumberFinder named &ldquo;two&rdquo; with start index 18 (inclusive) and end index 37 (exclusive). The corresponding substring of the inputText is &ldquo;nu17mbers in 12.5 it.&rdquo;. There are two numbers in this String, along with 2 words. Thus, 2 is added to numberCounter, 2 is added to wordCounter, and the total value of the numbers, 29.5, is added to total.&nbsp;</p>
-<p></p>
-<p>The final values of each field are listed below:&nbsp;</p>
-<ul>
-<li>numberCounter: 3</li>
-<li>wordCounter: 5</li>
-<li>total: 30.5</li>
-</ul>
-<p></p>
-<h3>Notes:&nbsp;</h3>
-<ul>
-<li>You can assume that all start and end indexes will be valid.&nbsp;</li>
-<li>If a number appears within a word, "Num10ber", it will count as a number and <strong>NOT</strong> as a word.&nbsp;
-<ul>
-<li>numberCounter will increment by one, while wordCounter is unmodified.&nbsp;</li>
-</ul>
-</li>
-<li>Numbers may be integers (1) or doubles (12.4).&nbsp;</li>
-<li>Any word that does not contain a number is considered valid.&nbsp;</li>
-<li>You may assume that two distinct numbers will not appear within a single word, "1test2".&nbsp;
-<ul>
-<li>Consecutive digits in a single word should be treated as a single number.&nbsp;</li>
-<li>For example, "Rand36.5om" is valid while "1n2e3w4" is not.&nbsp;</li>
-</ul>
-</li>
-<li>You do not need to include a main method in your submission, but you should use one during testing.&nbsp;</li>
-<li>You should follow the requirements documented in the Debugging handout for preventing race conditions. Solutions that use excessively broad scope are not considered concurrent and will not receive credit.&nbsp;</li>
-<li>Remember the difference between static and non-static. As there will be multiple NumberFinder objects, you will need to find a way to implement concurrency among all of them. If your solution does not implement concurrency properly for multiple objects, it will not receive credit.&nbsp;</li>
-<li>As long as you implement the requirements specified in this document, you can take any approach to concurrency in your implementation.&nbsp;</li>
-</ul>
+<p>Run through the program with sample inputs and verify everything is performing as expected.&nbsp;</p>
+<hr style="width: 100%; height: auto; color: #ffffff; border: 1px inset #cccccc;" />
 <h2 id="4">Submit</h2>
-<p>After testing your solution and verifying that it meets the requirements described in this document, you can submit on Vocareum. Your work will be manually graded within 7 days of the due date.&nbsp;</p>
+<p>After testing your solution and verifying that it meets the requirements described in this document, you can submit on Vocareum. Your work will be graded within 7 days of the due date.&nbsp;</p>
+<p></p>
 </div>
 </div>
 <footer></footer></main></div>
+
 </body>
 
 </html>
